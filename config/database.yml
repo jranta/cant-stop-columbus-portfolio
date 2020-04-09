@@ -10,11 +10,12 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
+  host: localhost
+  username: postgres
+  password: Reliantk1
   socket: /var/run/mysqld/mysqld.sock
 
 development:
@@ -27,7 +28,8 @@ development:
 test:
   <<: *default
   database: cant_stop_columbus_portfolio_test
-
+  username: postgres
+  password: Reliantk1
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -50,5 +52,5 @@ test:
 production:
   <<: *default
   database: cant_stop_columbus_portfolio_production
-  username: root@localhost
+  username: postgres
   password: Reliantk1
